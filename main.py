@@ -25,3 +25,13 @@ def read_item(item_id: int, q: Union[str, None] = None):
 @app.put("/items/{item_id}")
 def update_item(item_id: int, item: Item):
     return {"item_name": item.name, "item_id": item_id}
+
+
+@app.get("/length/{cadena}")
+def longitud(cadena: str):
+    vocales = 0
+    for letra in cadena.lower():
+        if letra in "aeiou":
+            vocales += 1
+             
+    return {"Cadena": cadena, "Length": len(cadena), "Vowels": vocales}
